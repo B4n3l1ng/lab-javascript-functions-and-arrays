@@ -242,7 +242,25 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(array) {
+  let productFinal = 0;
+  let product1 = 0;
+  let product2 = 0;
+  const rows = array.length;
+  const columns = array[0].length;
+  for (let i=0; i <= rows-4; i++) {
+    for (let j=0; j <= columns-4 ; j+=1) {
+      product1 = array[i][j] * array[i][j+1] * array[i][j+2] * array[i][j+3];
+      product2 = array[i][j] * array[i+1][j] * array[i+2][j] * array[i+3][j];
+      if (product1 >= product2) {
+        productFinal = product1;
+      } else if (product2 > product1){
+        productFinal = product2;
+      }
+    }
+  }
+  return productFinal;
+}
 
 
 
