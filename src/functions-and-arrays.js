@@ -60,18 +60,6 @@ function sum(array) {
   let sum = 0;
   if (array.length === 0) {
     return 0;
-  } else if (array.length === 1) {
-    if (typeof array[0] === "number") {
-    return array[0];
-    } else if (array[0] === true) {
-      return 1;
-    } else if (array[0] === false) {
-      return 0;
-    } else if (typeof array[0]==="string") {
-      return array[0].length;
-    } else {
-    throw new Error("Data type unsuported")
-    }
   } else { 
     for (let index = 0; index < array.length; index +=1) {
       if (typeof array[index] === "number") {
@@ -82,8 +70,8 @@ function sum(array) {
         sum += 1;
     } else if (array[index] === false) {
         sum += 0;
-    } else {
-      throw new Error("Data type unsuported") ;
+    } else if (typeof array[index] === "object") {
+      throw new Error("Unsupported data type sir or ma'am")
     }
     }
     return sum
