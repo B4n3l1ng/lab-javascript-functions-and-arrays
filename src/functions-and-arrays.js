@@ -39,12 +39,56 @@ function findLongestWord(array) {
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
+function sumNumbers(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return 0;
+  } else if (array.length === 1) {
+    return array[0];
+  } else {
+    for (let index = 0; index < array.length; index +=1) {
+      sum += array[index];
+    }
+    return sum;
+  }
+}
 
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(array) {
+  let sum = 0;
+  if (array.length === 0) {
+    return 0;
+  } else if (array.length === 1) {
+    if (typeof array[0] === "number") {
+    return array[0];
+    } else if (array[0] === true) {
+      return 1;
+    } else if (array[0] === false) {
+      return 0;
+    } else if (typeof array[0]==="string") {
+      return array[0].length;
+    } else {
+    console.log ("Error.Data type unsuported");
+    }
+  } else { 
+    for (let index = 0; index < array.length; index +=1) {
+      if (typeof array[index] === "number") {
+        sum += array[index];
+    } else if (typeof array[index] === "string") {
+        sum += array[index].length;
+    } else if (array[index]=== true) {
+        sum += 1;
+    } else if (array[index] === false) {
+        sum += 0;
+    } else {
+      console.log("Error. Data type unsuported");
+    }
+    }
+    return sum
+  }
+}
 
 
 
