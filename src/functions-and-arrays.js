@@ -96,17 +96,52 @@ function sum(array) {
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(array) {
+  let sum = sumNumbers(array);
+  if (array.length === 0) {
+    return null;
+  } else {
+  let result = sum / array.length;
+  return result;
+  }
+}
 
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(array) {
+  let length = 0;
+  if (array.length === 0) {
+    return null;
+  } else {
+    for (let index = 0; index < array.length; index += 1) {
+      length += array[index].length;
+    }
+    return length / array.length;
+  }
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
-
+function avg(array) {
+  let length = 0;
+  if (array.length === 0){
+    return null;
+  } else {
+    for (let index=0; index < array.length; index += 1) {
+      if (typeof array[index] === "number") {
+        length += array[index];
+      } else if (typeof array[index] ==="string") {
+        length += array[index].length;
+      } else if (array[index] === true) {
+        length += 1;
+      }else if (array[index] === false) {
+        continue;
+      }
+    }
+    return length / array.length;
+}
+}
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
