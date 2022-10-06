@@ -70,7 +70,7 @@ function sum(array) {
     } else if (typeof array[0]==="string") {
       return array[0].length;
     } else {
-    console.log ("Error.Data type unsuported");
+      throw new Error ("Data type unsuported");
     }
   } else { 
     for (let index = 0; index < array.length; index +=1) {
@@ -82,8 +82,10 @@ function sum(array) {
         sum += 1;
     } else if (array[index] === false) {
         sum += 0;
-    } else {
-      console.log("Error. Data type unsuported");
+    } else  if (typeof array[index] === "array") {
+      throw new Error ('');
+    } else if (typeof array[index] === "object") {
+      throw new Error ('Data type unsuported')
     }
     }
     return sum
